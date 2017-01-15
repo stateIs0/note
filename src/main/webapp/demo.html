@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var person = {};
+person.name='Tom';
+person.who = function(){
+	console.log("I am "+this.name);
+};
+person.who = function(msg){
+	console.log("I am "+this.name+msg);
+};
+
+//直接定义的变量和函数是window对象的属性和方法
+var msg = 'Hello';
+
+function hello(){
+	console.log("Hello!");
+}
+
+//后面定义的函数会替代 前面定义的函数
+function hello(msg){
+	console.log("Hello "+msg);
+}
+
+
+
+</script>
+</head>
+<body>
+	<h1>方法</h1>
+
+</body>
+</html>

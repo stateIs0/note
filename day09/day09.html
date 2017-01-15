@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day09</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>实现登录权限检查</h2>
+<p>原理：</p>
+<p><img src="acl.png" /></p>
+<p>步骤：</p>
+<ol>
+<li>重构数据层，实现更新用户信息的方法</li>
+<li>重构业务层登录方法，在登录时候分配新的token</li>
+<li>重构控制器，登录时候将token写入到客户端cookie中</li>
+<li>重构web.xml 利用 ContextLoaderListener 初始化Spring容器。</li>
+<li>创建新的Servlet Filter 检查登录状态。</li>
+</ol>
+<h3>1. 重构数据层，实现更新用户信息的方法</h3>
+<p>添加更新用户信息方法 UserDao.java:</p>
+<pre><code>int updateUser(Map&lt;String, Object&gt; user);
+</code></pre>
+
+<p>添加SQL UserMapper.xml:</p>
+<pre><code>&lt;update id=&quot;updateUser&quot;
+    parameterType=&quot;map&quot;&gt;
+    update 
+        cn_user
+    set
+        &lt;trim suffixOverrides=&quot;,&quot;&gt;
+            &lt;if test=&quot;token != null&quot;&gt;
+                cn_user_token=#{token},
+            &lt;/if&gt;
+            &lt;if test=&quot;password != null&quot;&gt;
+                cn_user_password=#{password},
+            &lt;/if&gt;
+            &lt;if test=&quot;nick != null&quot;&gt;
+                cn_user_nick=#{nick}
+            &lt;/if&gt;
+        &lt;/trim&gt;
+    where
+        cn_user_id=#{id}
+&lt;/update&gt;
+</code></pre>
+
+<p>测试:...</p>
+<h3>2. 重构业务层登录方法，在登录时候分配新的token</h3>
+<p>重构UserServiceImpl.java 中的login方法:</p>
+<pre><code>...
+if(user.getPassword().equals(md5)){
+    //业务处理
+    //登录成功，返回用户信息
+    String token=UUID.randomUUID().toString();
+    user.setToken(token);
+    Map&lt;String, Object&gt; data=
+        new HashMap&lt;String, Object&gt;();
+    data.put(&quot;id&quot;, user.getId());
+    data.put(&quot;token&quot;, token);
+    userDao.updateUser(data);
+    return user;
+}
+...
+</code></pre>
+
+<p>测试...</p>
+<h3>3. 重构控制器，登录时候将token写入到客户端cookie中</h3>
+<p>重构UserController.java 的login方法：</p>
+<pre><code>@RequestMapping(&quot;/login.do&quot;)
+@ResponseBody
+public JsonResult&lt;User&gt; login(String name,
+        String password,
+        HttpServletResponse response){
+    User user = 
+        userService.login(name, password);
+    Cookie cookie = new Cookie(&quot;token&quot;, 
+            user.getToken());
+    cookie.setPath(&quot;/&quot;); 
+    response.addCookie(cookie);
+    return new JsonResult&lt;User&gt;(user);
+}
+</code></pre>
+
+<blockquote>
+<p>提示: 这里的cookie是当前仅仅在会话期间有效。</p>
+</blockquote>
+<p>测试： 在浏览器端检查是否存在cookie </p>
+<h3>4. 重构web.xml 利用 ContextLoaderListener 初始化Spring容器。</h3>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;mvc&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;mvc&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+
+&lt;listener&gt;
+     &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+&lt;context-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:spring-*.xml&lt;/param-value&gt;
+&lt;/context-param&gt; 
+</code></pre>
+
+<blockquote>
+<p>提示: 使用工具类WebApplicationContextUtils就必须使用 ContextLoaderListener 初始化Spring容器。</p>
+</blockquote>
+<h3>5. 创建新的Servlet Filter 检查登录状态。</h3>
+<p>配置web.xml 添加过滤器配置：</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;acl&lt;/filter-name&gt;
+    &lt;filter-class&gt;cn.tedu.note.web.ACLFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;acl&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt; 
+</code></pre>
+
+<p>添加过滤器类 ACLFilter.java:</p>
+<pre><code>public class ACLFilter implements Filter{
+
+    private ServletContext sc;
+    private ApplicationContext ctx;
+    private UserService userService;
+
+    /**
+     * 过滤器初始化代码
+     * 获取了 Spring容器和UserService
+     */
+    public void init(FilterConfig cfg)
+        throws ServletException {
+
+        sc= cfg.getServletContext();
+        //获取Spring容器
+        ctx=WebApplicationContextUtils
+            .getWebApplicationContext(sc);
+        //从容器中获取 UserService 对象
+        userService=ctx.getBean(
+                &quot;userService&quot;,
+                UserService.class);
+
+    }
+    public void doFilter(
+            ServletRequest req, 
+            ServletResponse res, 
+            FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletRequest request=
+            (HttpServletRequest) req;
+        HttpServletResponse response =
+            (HttpServletResponse) res;
+
+        String path=request.getRequestURI();
+        //System.out.println(path);
+
+        path = path.substring(
+            path.indexOf('/', 1));
+
+        //System.out.println(&quot;trim path:&quot;+path);
+
+        if(path.matches(&quot;.*/edit\\.html$&quot;)){
+            checkLogin(request,response,chain);
+            return;
+        }
+
+        if(path.matches(&quot;.(note).*\\.do$&quot;)){
+            checkDotDo(request,response,chain);
+            return;
+        }
+
+        chain.doFilter(request, response); 
+    }
+    private void checkDotDo(HttpServletRequest request, HttpServletResponse response, FilterChain chain) 
+            throws IOException, ServletException {
+        //System.out.println(&quot;checkDotDo&quot;);
+        String token = getCookie(request, &quot;token&quot;);
+        String userId= getCookie(request,&quot;userId&quot;);
+        //System.out.println(&quot;userId:&quot;+userId); 
+
+        if(userService.checkToken(userId, token)){
+            chain.doFilter(request, response);
+            return;
+        }
+
+        //没有登录时候，返回JSON错误消息
+        String json=&quot;{\&quot;state\&quot;:1,\&quot;message\&quot;:\&quot;必须登录！\&quot;}&quot;;
+        response.setCharacterEncoding(&quot;utf-8&quot;);
+        response.setContentType(
+            &quot;application/json;charset=UTF-8&quot;);
+        response.getWriter().println(json);
+    }
+    private String getCookie(HttpServletRequest request, 
+            String cookieName) {
+        Cookie[] cookies=request.getCookies();
+        //如果客户端没有cookie，就会返回null
+        if(cookies!=null){
+            for (Cookie cookie : cookies) {
+                if(cookieName.equals(
+                        cookie.getName())){
+                    return cookie.getValue();
+                }
+            }
+        }
+        return null;
+    }
+    private void checkLogin(HttpServletRequest request, HttpServletResponse response, FilterChain chain) 
+            throws IOException, ServletException {
+        //System.out.println(&quot;checkLogin&quot;);
+        //检查是否有 token cookie 
+        //如果没有， 就重定向到log_in.html
+        String token = getCookie(request, &quot;token&quot;);
+        String userId= getCookie(request,&quot;userId&quot;);
+        //System.out.println(&quot;userId:&quot;+userId); 
+        if(userService.checkToken(userId, token)){
+            chain.doFilter(request, response);
+            return;
+        }
+        //重定向到 log_in.html
+        String path=request.getContextPath()+
+            &quot;/log_in.html&quot;;
+        response.sendRedirect(path);
+    }
+
+    public void destroy() {
+    }
+}
+</code></pre>
+
+<p>添加业务层方法 UserService.java:</p>
+<pre><code>boolean checkToken(String userId, String token);
+</code></pre>
+
+<p>实现业务层方法：</p>
+<pre><code>public boolean checkToken(
+        String userId, String token) {
+    if(userId==null || userId.trim().isEmpty()){
+        return false;
+    }
+    if(token==null || token.trim().isEmpty()){
+        return false;
+    }
+    User user = 
+        userDao.findUserById(userId);
+    if(user==null){
+        return false; 
+    }
+    return token.equals(user.getToken());
+}
+</code></pre>
+
+<p>测试...</p>
+<hr />
+<h2>作业</h2>
+<p>实现上述过程，并且调试。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

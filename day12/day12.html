@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day12</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1></h1>
+<h2>事务（交易）管理</h2>
+<p>容器类==集合框架==集合</p>
+<p>Web容器==Web服务器==Servlet容器=Servet引擎</p>
+<p>Tomcat, Jetty ，WebLogic，IBM WebSpare</p>
+<h3>传播</h3>
+<p>REQUIRED：如果有事务，则参与到当前事务，如果没有则自动开始新事务，总之，必须有事务。默认最常用规则！！！</p>
+<pre><code>propagation=Propagation.REQUIRED
+</code></pre>
+
+<p>REQUIRES_NEW：必须有新事务，没有事务开启新事务，已经有事务时候，也开启新的独立事务。 </p>
+<pre><code>propagation=Propagation.REQUIRES_NEW
+</code></pre>
+
+<p>NEVER：方法永远不参与事务</p>
+<pre><code>propagation=Propagation.NEVER
+</code></pre>
+
+<p>NOT_SUPPORTED：不支持事务, 如果在事务中调用，把当前事务临时挂起，执行以后再继续处理事务。</p>
+<pre><code>propagation=Propagation.NOT_SUPPORTED
+</code></pre>
+
+<p>NESTED：嵌套，当前方法不能单独使用，必须嵌套到其他事务中使用。</p>
+<pre><code>propagation=Propagation.NESTED
+</code></pre>
+
+<p>MANDATORY：不支持事务, 不能再事务中调用，如果调用就出现异常</p>
+<pre><code>propagation=Propagation.MANDATORY
+</code></pre>
+
+<h2>AOP 总结</h2>
+<p>反射-&gt; 动态代理 -&gt; AOP -&gt; 声明式事务管理</p>
+<p>动态代理： </p>
+<ol>
+<li>JDK 动态代理： java.lang.reflect.Proxy 使用是有前提的，必须有接口！！</li>
+<li>CGlib动态代理：基于类的动态代理</li>
+</ol>
+<p>Spring的AOP动态代理会自动利用 JDK Proxy和CGlib，如果有接口就优先使用JDK Proxy，其他情况下使用CGlib</p>
+<h2>MyBatis 高级应用</h2>
+<h3>分页查询</h3>
+<p>分页查询，其目的在于在查询结果较多，需要分批向浏览器传输数据。在查询结果多时候经常采用。</p>
+<p>实现分页查询：</p>
+<ol>
+<li>数据持久层支持分页查询功能，主要是才有分页查询SQL实现，可以根据数据行范围，返回一部分查询结果。</li>
+<li>业务层将页号换算为分页查询参数，提交给数据层</li>
+<li>表现层控制器与HTML页面配合显示出适当的页面效果。</li>
+</ol>
+<p>案例：分页查询笔记本列表</p>
+<p>数据层 NotebookDao.java ：</p>
+<pre><code>/**
+ * 分页查询，必须传递参数：
+ *  userId: 用户的ID
+ *  start: 查询起始行号
+ *  rows: 一次查询的最多行数
+ * @param params 封装参数的Map
+ * @return List&lt;Map&gt; 
+ */
+List&lt;Map&lt;String, Object&gt;&gt;
+    findNotebooksByPage(
+        Map&lt;String, Object&gt; params);
+</code></pre>
+
+<p>添加SQL NotebookMapper.java:</p>
+<pre><code>&lt;select id=&quot;findNotebooksByPage&quot;
+    parameterType=&quot;map&quot;
+    resultType=&quot;map&quot;&gt;
+    select 
+        cn_notebook_id as id,
+        cn_notebook_name as name
+    from
+        cn_notebook
+    where
+        cn_user_id=#{userId}
+    &lt;if test=&quot;start != null&quot;&gt;
+        limit #{start}, #{rows} 
+    &lt;/if&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testListNotebooks(){
+    String userId=&quot;ea09d9b1-ede7-4bd8-b43d-a546680df00b&quot;;
+    NotebookService service = ctx.getBean(
+        &quot;notebookService&quot;,
+        NotebookService.class);
+    List&lt;Map&lt;String, Object&gt;&gt; list = 
+        service.listNotebooks(userId);
+    for (Map&lt;String, Object&gt; n : list) {
+        System.out.println(n); 
+    }
+}   
+</code></pre>
+
+<p>添加业务层方法 NotebookService.java:</p>
+<pre><code>List&lt;Map&lt;String, Object&gt;&gt; 
+    listNotebooks(String userId, 
+    int pageNum, int pageSize)
+    throws UserNotFoundException;
+</code></pre>
+
+<p>实现业务层方法 NotebookServiceImpl.java</p>
+<pre><code>@Transactional(readOnly=true)
+public List&lt;Map&lt;String, Object&gt;&gt; listNotebooks(
+    String userId, int pageNum, int pageSize)
+    throws UserNotFoundException {
+    if(userId==null||userId.trim().isEmpty()){
+        throw new UserNotFoundException(&quot;ID空&quot;);
+    }
+    User user = userDao.findUserById(userId);
+    if(user==null){
+        throw new UserNotFoundException(&quot;木有人&quot;);
+    }
+    //计算出起始行号
+    int start = pageNum*pageSize;
+    Map&lt;String, Object&gt; params=
+        new HashMap&lt;String, Object&gt;();
+    params.put(&quot;userId&quot;, userId);
+    params.put(&quot;start&quot;, start);
+    params.put(&quot;rows&quot;, pageSize);
+    return notebookDao.findNotebooksByPage(params);
+}
+</code></pre>
+
+<p>测试 业务层 略...</p>
+<p>添加控制器方法 NotebookController.java:</p>
+<pre><code>@RequestMapping(&quot;notebooks.do&quot;)
+@ResponseBody
+public JsonResult&lt;List&lt;Map&lt;String, Object&gt;&gt;&gt;
+    notebooks(String userId, int page){
+    int size=6;
+    List&lt;Map&lt;String, Object&gt;&gt; list=
+        notebookService.listNotebooks(
+            userId, page, size);
+    return new JsonResult&lt;List&lt;Map&lt;String,Object&gt;&gt;&gt;(list);
+}
+</code></pre>
+
+<p>测试：</p>
+<pre><code>http://localhost:8080/note/notebook/notebooks.do?userId=39295a3d-cc9b-42b4-b206-a2e7fab7e77c&amp;page=1
+</code></pre>
+
+<p>重构页面js代码 edit_notebook.js:</p>
+<p>重构 loadNotebooksAction 方法：</p>
+<pre><code>function loadNotebooksAction(){
+
+    //获取 page 数据 
+    //$(this)是li.more, 显示li时候，已经在LI
+    //上绑定了页号数据，这里是获取页号数据
+    //如果不存在这个数居说明是第一次显示
+    //则显示第0页的内容
+    var page=$(this).data('page');
+    if(! page){
+        page = 0;
+    }
+
+    //console.log('loadNotebooksAction()');
+    //var url='notebook/list.do';
+    var url='notebook/notebooks.do';
+    //var data={userId:getCookie('userId')};
+    var data={userId:getCookie('userId'),
+            page:page};
+    //console.log(data);
+    //console.log(url);
+    $.getJSON(url, data, function(result){
+        if(result.state==SUCCESS){
+            var list=result.data;
+            console.log(list); 
+            model.updateNotebooks(list, page);
+        }
+    });
+}
+</code></pre>
+
+<p>重构 updateNotebooks 方法：</p>
+<pre><code>model.updateNotebooks=function(list, page){
+    var template='&lt;li class=&quot;online notebook&quot;&gt;'+
+        '&lt;a&gt;'+
+        '&lt;i class=&quot;fa fa-book &quot; title=&quot;online&quot; rel=&quot;tooltip-bottom&quot;&gt;&lt;/i&gt;'+
+        '[notebook.name]&lt;/a&gt;&lt;/li&gt;';
+    //检查如果是第一次获得笔记本列表，就直接
+    //保存到 模型中，如果是追加显示就将两个
+    //数组合并为一个笔记本列表
+    if(! this.notebooks ){
+        this.notebooks=list;
+    }else{
+        //concat 方法用于合并两个数组
+        this.notebooks=
+            this.notebooks.concat(list); 
+    }
+    //console.log(this);
+    var ul=$('#notebooks').empty();
+    for(var i=0;i&lt;this.notebooks.length;i++){
+        var notebook=this.notebooks[i];
+        // id name
+        var li=template.replace(
+            '[notebook.name]', notebook.name);
+        //在DOM对象上绑定数据 index
+        li = $(li).data('index',i);
+        ul.append(li);
+    }
+    var li = $('&lt;li class=&quot;online more&quot;&gt;'+
+            '&lt;a&gt;More...&lt;/a&gt;&lt;/li&gt;');
+    //绑定下一页的页号
+    li.data('page', page+1);
+    ul.append(li);
+};
+</code></pre>
+
+<blockquote>
+<p>在笔记本列表最后的位置添加 More... 按钮，在这按钮上绑定下一页的页号</p>
+</blockquote>
+<p>重构事件监听js edit_init.js:</p>
+<pre><code>...
+//绑定点击笔记本列表的事件
+//showNotesAction函数定义在edit_note.js中
+$('#notebooks').on(
+        'click','li.notebook', showNotesAction);
+//绑定 More 连接监听  
+$('#notebooks').on(
+        'click','li.more', loadNotebooksAction);
+...
+</code></pre>
+
+<p>测试 ...</p>
+<h2>动态SQL拼接</h2>
+<p>MyBatis 利用映射文件的XML标签提供了动态SQL拼接功能</p>
+<p>可以使用的标签：</p>
+<pre><code>&lt;if test=&quot;测试条件&quot;&gt;&lt;/if&gt;
+&lt;choose&gt;&lt;/choose&gt;多路选择
+&lt;trim&gt;&lt;/trim&gt; 处理多余的 and or 等
+&lt;set&gt;&lt;/set&gt; 用于生成set子句 自动去除多余 ,
+&lt;where&gt;&lt;/where&gt; 生成where子句
+&lt;foreach&gt;&lt;/foreach&gt; 迭代常与 in 配合
+</code></pre>
+
+<p>业务场景： 用多个条件查询笔记</p>
+<ol>
+<li>用户id</li>
+<li>笔记本id</li>
+<li>标题 </li>
+<li>内容关键字</li>
+</ol>
+<p>都是可选条件</p>
+<p>SQL NoteMapper.xml:</p>
+<pre><code>&lt;!-- 多条件查询 --&gt;
+&lt;select id=&quot;findNoteByParams&quot;
+    parameterType=&quot;map&quot;
+    resultType=&quot;map&quot;&gt;
+    select
+        cn_note_id as id,
+        cn_note_title as title
+    from 
+        cn_note
+    &lt;where&gt;
+        &lt;trim prefixOverrides=&quot;and&quot;&gt;
+            &lt;if test=&quot;userId != null&quot;&gt;
+                cn_user_id=#{userId}  
+            &lt;/if&gt;
+            &lt;if test=&quot;notebookId != null&quot;&gt;
+                and cn_notebook_id=#{notebookId}
+            &lt;/if&gt;
+            &lt;choose&gt;
+                &lt;when test=&quot;title != null&quot;&gt;
+                    and cn_note_title like #{title} 
+                &lt;/when&gt;
+                &lt;when test=&quot;key !=null&quot;&gt;
+                    and cn_note_title like #{key}                   
+                &lt;/when&gt;
+            &lt;/choose&gt;
+            &lt;if test=&quot;key != null&quot;&gt;
+                or cn_note_body like #{key}
+            &lt;/if&gt;
+        &lt;/trim&gt;
+    &lt;/where&gt;
+    &lt;if test=&quot;start != null&quot;&gt;
+        limit #{start}, #{rows}
+    &lt;/if&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>NoteDao.java:</p>
+<pre><code>List&lt;Map&lt;String, Object&gt;&gt; findNoteByParams(
+        Map&lt;String, Object&gt; params);
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testFindNoteByParams(){
+    Map&lt;String, Object&gt; params=
+        new HashMap&lt;String, Object&gt;();
+    //params.put(&quot;userId&quot;, &quot;&quot;);
+    //params.put(&quot;notebookId&quot;, &quot;&quot;);
+    params.put(&quot;key&quot;, &quot;%1%&quot;);
+    params.put(&quot;start&quot;, 0);
+    params.put(&quot;rows&quot;, 10);
+
+    NoteDao dao = ctx.getBean(
+        &quot;noteDao&quot;, NoteDao.class);
+    List&lt;Map&lt;String, Object&gt;&gt; list =
+        dao.findNoteByParams(params);
+    for (Map&lt;String, Object&gt; map : list) {
+        System.out.println(map);
+    }
+}
+</code></pre>
+
+<p>批量删除功能：</p>
+<p>NoteMapper.xml:</p>
+<pre><code>&lt;!-- 批量删除 --&gt;
+&lt;!-- idList 是 参数map中的key，其值是list
+id 代表 list中每个元素--&gt;
+&lt;delete id=&quot;deleteNotes&quot;
+    parameterType=&quot;map&quot;&gt;
+    delete from cn_note
+    where
+        cn_user_id = #{userId} and
+        cn_note_id in 
+        &lt;foreach collection=&quot;idList&quot;
+            item=&quot;id&quot;
+            open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;
+            #{id}
+        &lt;/foreach&gt;
+&lt;/delete&gt;   
+</code></pre>
+
+<p>NoteDao.java:</p>
+<pre><code>void deleteNotes(Map&lt;String, Object&gt; params);
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testDeleteNotes(){
+    String userId=&quot;524f7440-7283-4b2d-8af5-4a67570e892e&quot;;
+    List&lt;String&gt; idList=
+        new ArrayList&lt;String&gt;();
+    idList.add(&quot;22222222222222222222222222222222222&quot;);
+    idList.add(&quot;41712949-4a1a-4e24-944a-9b8ed1001238&quot;);
+    idList.add(&quot;60480071-f989-4945-9b1c-0d2aba07ae96&quot;);
+    idList.add(&quot;60480071-f989-4945-9b1c-0d2aba07ae96&quot;);
+    Map&lt;String, Object&gt; params = 
+        new HashMap&lt;String, Object&gt;();
+    params.put(&quot;userId&quot;, userId);
+    params.put(&quot;idList&quot;, idList);
+    NoteDao dao = ctx.getBean(
+        &quot;noteDao&quot;, NoteDao.class);
+    dao.deleteNotes(params); 
+}
+</code></pre>
+
+<h2>关联查询</h2>
+<p>案例：</p>
+<p><img src="2.png" />	</p>
+<p>初始化 SQL：</p>
+<pre><code>create table p_person(
+    id int,
+    name varchar(100),
+    primary key(id)
+);
+
+insert into p_person (id, name) 
+    values (1, '花花');
+
+insert into p_person (id, name) 
+    values (2, 'Jerry');
+
+create table p_comment(
+    id int,
+    content varchar(100),
+    post_id int,
+    primary key(id)
+);
+
+create table p_post(
+    id int, 
+    content varchar(100),
+    person_id int,
+    primary key(id)
+);
+
+insert into p_post (id, content, person_id)
+    values (1, '今天下雪了', 1);
+insert into p_post (id, content, person_id)
+    values (2, '李洪鹤老师呵呵', 1);
+insert into p_comment(id, content, post_id)
+    values (1, '比雾霾好', 1);
+insert into p_comment(id, content, post_id)
+    values (2, '冻成狗', 1);
+insert into p_comment(id, content, post_id)
+    values (3, '喜欢下雪', 1);
+</code></pre>
+
+<p>实体类：</p>
+<pre><code>public class Person implements Serializable{
+    private static final long serialVersionUID = -296767120996005908L;
+
+    private Integer id;
+    private String name;
+
+    public Person() {
+    }
+
+    public Person(Integer id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Person other = (Person) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Person [id=&quot; + id + &quot;, name=&quot; + name + &quot;]&quot;;
+    }
+
+
+}
+
+
+public class Comment implements Serializable{
+    private static final long serialVersionUID = 9005740179566619541L;
+
+    private Integer id;
+    private String content;
+
+    public Comment() {
+    }
+
+    public Comment(Integer id, String content) {
+        super();
+        this.id = id;
+        this.content = content;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Comment other = (Comment) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Comment [id=&quot; + id + &quot;, content=&quot; + content + &quot;]&quot;;
+    }
+
+
+}
+
+
+public class Post implements Serializable {
+    private static final long serialVersionUID = -929206547879400506L;
+
+    private Integer id;
+    private String content;
+
+    private Person person;
+    private List&lt;Comment&gt; comments;
+
+    public Post() {
+    }
+
+    public Post(Integer id, String content, Person person) {
+        super();
+        this.id = id;
+        this.content = content;
+        this.person = person;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List&lt;Comment&gt; getComments() {
+        return comments;
+    }
+
+    public void setComments(List&lt;Comment&gt; comments) {
+        this.comments = comments;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Post other = (Post) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Post [id=&quot; + id + &quot;, content=&quot; + content + &quot;, person=&quot; + person + &quot;, comments=&quot; + comments + &quot;]&quot;;
+    }
+
+}
+</code></pre>
+
+<p>PostDao.java：</p>
+<pre><code>public interface PostDao {
+
+    Post findPostById(Integer id);
+}
+</code></pre>
+
+<p>PostMapper.xml:</p>
+<pre><code>&lt;mapper namespace=&quot;cn.tedu.note.dao.PostDao&quot;&gt;
+    &lt;resultMap type=&quot;cn.tedu.note.entity.Post&quot; 
+        id=&quot;postMap&quot;&gt;
+        &lt;id column=&quot;id&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;content&quot; 
+            property=&quot;content&quot;/&gt;
+        &lt;association property=&quot;person&quot;
+            javaType=&quot;cn.tedu.note.entity.Person&quot;&gt;
+            &lt;id column=&quot;pid&quot; property=&quot;id&quot;/&gt;
+            &lt;result column=&quot;name&quot; property=&quot;name&quot;/&gt;
+        &lt;/association&gt;
+        &lt;collection property=&quot;comments&quot;
+            javaType=&quot;list&quot; 
+            ofType=&quot;cn.tedu.note.entity.Comment&quot;
+            select=&quot;findComments&quot;
+            column=&quot;id&quot;&gt;
+        &lt;/collection&gt;
+    &lt;/resultMap&gt;
+    &lt;select id=&quot;findComments&quot; 
+        parameterType=&quot;int&quot;
+        resultType=&quot;cn.tedu.note.entity.Comment&quot;&gt;
+        select
+            id,
+            content,
+            post_id 
+        from
+            p_comment  
+        where 
+            post_id = #{id}
+    &lt;/select&gt;
+
+    &lt;select id=&quot;findPostById&quot;
+        parameterType=&quot;int&quot;
+        resultMap=&quot;postMap&quot;&gt;
+        select 
+            p.id,
+            p.content,
+            p.person_id,
+            u.id as pid,
+            u.name 
+        from
+            p_post p
+        join p_person u on (p.person_id=u.id) 
+        where 
+            p.id=#{id}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testFindPostById(){
+    PostDao dao = ctx.getBean(
+        &quot;postDao&quot;, PostDao.class);
+    Post post=dao.findPostById(1);
+    System.out.println(post); 
+}
+</code></pre>
+
+<h2>关于全文检索：</h2>
+<p>数据量非常大：搜索引擎技术，进行全文检索，如：org.apache.lucene</p>
+<p>小数据量：可以使用 like 模糊查询，like是没有索引支持的顺序查询，性能很差。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

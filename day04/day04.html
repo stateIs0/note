@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day04</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>密码的加密处理</h2>
+<p>业界原则： 密码不能明文保存！！！</p>
+<blockquote>
+<p>明文： 原始数据， 密文：原始数据经过计算得到的加密数据</p>
+</blockquote>
+<h3>消息摘要技术</h3>
+<p>常用算法： MD5  SHA-1 等</p>
+<p>消息摘要结果特定: </p>
+<ol>
+<li>同样数据的摘要结果一定相同</li>
+<li>摘要结果一样，其数据一定一样</li>
+</ol>
+<p><img src="md5.png" /></p>
+<p>如：</p>
+<pre><code>md5sum readme.txt passwd.csv nexus.conf.tar.gz
+
+4983b761596da1a8296a5e16d94a5f75  readme.txt
+235d83751c25c8227617a8255bebd3ed  passwd.csv
+525d172647acf4d1879327e0c5d7276a  nexus.conf.tar.gz
+</code></pre>
+
+<p>摘要用途: 验证数据的完整性</p>
+<h3>利用摘要加密密码</h3>
+<p>直接摘要存储：</p>
+<p>原理：</p>
+<p><img src="1.png" /></p>
+<blockquote>
+<p>缺点：简单摘要不能解决被反查问题，可以在一些网站上反查简单数据的摘要。</p>
+</blockquote>
+<p>加盐摘要：</p>
+<p>原理：</p>
+<p><img src="2.png" /></p>
+<blockquote>
+<p>可以避免被反查</p>
+</blockquote>
+<p>实现密码加密：</p>
+<p>导入 Commons-codec 包</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;commons-codec&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
+    &lt;version&gt;1.10&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testMd5(){
+    String str = &quot;12345678你好&quot;;
+    String md5 = 
+        DigestUtils.md5Hex(str);
+    System.out.println(md5); 
+}
+
+@Test
+public void testSaltPwd()
+    throws Exception {
+    String pwd = &quot;123&quot;;
+    String salt = &quot;你吃了吗？&quot;;
+    String s = 
+        DigestUtils.md5Hex(pwd+salt);
+    System.out.println(s);
+    //2625eadfbe7fa3168f8e9cafa28aaa44
+
+    //update cn_user set cn_user_password = 
+    // '2625eadfbe7fa3168f8e9cafa28aaa44'
+}
+</code></pre>
+
+<p>将数据中的全部密码重置为123：</p>
+<pre><code>update cn_user set cn_user_password=     '2625eadfbe7fa3168f8e9cafa28aaa44';
+</code></pre>
+
+<p>添加加密工具类：</p>
+<pre><code>public class Utils {
+
+    private static final String salt = &quot;你吃了吗？&quot;;
+
+    public static String crypt(String pwd){
+        return DigestUtils.md5Hex(pwd+salt);
+    }
+}
+</code></pre>
+
+<p>更新登录算法 UserServiceImpl 的 login 方法：</p>
+<pre><code>//比较摘要
+String md5=Utils.crypt(password);
+System.out.println(md5);
+System.out.println(user);
+if(user.getPassword().equals(md5)){
+    //业务处理
+    //登录成功，返回用户信息
+    return user;
+}
+</code></pre>
+
+<p>测试：用户可以正常登录。</p>
+<p><strong>经典面试题</strong>: 是否可以在Cookie中保存密码等敏感信息</p>
+<pre><code>答案： 
+不能直接明文保存密码等敏感信息到Cookie，
+如果实在需要保存可以进行加盐摘要处理以后再保存到cookies中。
+</code></pre>
+
+<h2>注册功能</h2>
+<p>分析：</p>
+<p><img src="regist.png" /></p>
+<p>实现步骤：</p>
+<ol>
+<li>实现持久层并且测试</li>
+<li>实现业务层并且测试</li>
+<li>实现表现层控制器并且测试</li>
+<li>整合HTML界面</li>
+</ol>
+<h3>1. 实现持久层并且测试</h3>
+<p>已经实现，略.</p>
+<h3>2. 实现业务层并且测试</h3>
+<p>添加业务层接口方法， UserService.java：</p>
+<pre><code>/**
+ * 用户注册功能
+ * 
+ * @throws UserNameException 用户名空，
+ *   或者已经注册
+ * @throws PasswordException 密码不一致
+ */
+public User regist(String name, 
+        String nick, 
+        String password,
+        String confirm)
+    throws UserNameException, 
+    PasswordException;
+</code></pre>
+
+<p>实现业务层 UserServceImpl.java：</p>
+<pre><code>public User regist(String name, String nick, 
+        String password, String confirm)
+        throws UserNameException, PasswordException {
+    if(name==null||name.trim().isEmpty()){
+        throw new UserNameException(&quot;不能空&quot;);
+    }
+    String reg = &quot;^\\w{3,10}$&quot;;
+    if(! name.matches(reg)){
+        throw new UserNameException(&quot;不合规则&quot;);
+    }
+    if(nick==null||nick.trim().isEmpty()){
+        nick = name;
+    }
+    if(password==null||password.trim().isEmpty()){
+        throw new PasswordException(&quot;不能空&quot;);
+    }
+    password = password.trim();
+    if(! password.matches(reg)){
+        throw new UserNameException(&quot;密码不合规&quot;);
+    }
+    if(! password.equals(confirm)){
+        throw new PasswordException(&quot;确认不一致&quot;);
+    }
+    name = name.trim();
+    //检验用户名是否重复？
+    User one=userDao.findUserByName(name);
+    if(one!=null){
+        throw new UserNameException(&quot;已注册&quot;);
+    }
+    // name, nick, password
+    //UUID 用于生产永远不重复的ID
+    String id=UUID.randomUUID().toString();
+    String token=&quot;&quot;;
+    String pwd=Utils.crypt(password);
+    User user = new User(id, name, 
+        pwd, token, nick);
+    System.out.println(user);
+    userDao.saveUser(user);
+    return user;
+}
+</code></pre>
+
+<p>测试：</p>
+<pre><code>@Test
+public void testRegistUser(){
+    UserService service = 
+        ctx.getBean(&quot;userService&quot;,
+        UserService.class);
+    User user=service.regist(
+        &quot;Jerry&quot;, &quot;Mouse&quot;,&quot;123&quot;, &quot;123&quot;);
+    System.out.println(user); 
+}
+</code></pre>
+
+<h3>3. 实现表现层控制器并且测试</h3>
+<p>添加控制器方法 UserController.java: </p>
+<pre><code>@RequestMapping(&quot;/regist.do&quot;)
+@ResponseBody
+public JsonResult&lt;User&gt; regist(
+        String name, String nick, 
+        String password, String confirm){
+    User user = userService.regist(name, nick, password, confirm);
+    return new JsonResult&lt;User&gt;(user);
+}
+</code></pre>
+
+<p>添加异常处理方法，进行统一异常处理：</p>
+<pre><code>@ExceptionHandler(UserNameException.class)
+@ResponseBody
+public JsonResult userName(UserNameException e){
+    e.printStackTrace();
+    return new JsonResult(2, e);
+}
+@ExceptionHandler(PasswordException.class)
+public JsonResult password(PasswordException e){
+    e.printStackTrace();
+    return new JsonResult(3, e);
+}
+@ExceptionHandler
+@ResponseBody
+public JsonResult exp(Exception e){
+    e.printStackTrace();
+    return new JsonResult(e);
+}
+</code></pre>
+
+<blockquote>
+<p>利用@ExceptionHandler统一异的处理，可以简化控制器方法的书写。</p>
+</blockquote>
+<p>重构登录控制器方法：</p>
+<pre><code>@RequestMapping(&quot;/login.do&quot;)
+@ResponseBody
+public JsonResult&lt;User&gt; login(String name,
+        String password){
+    User user =  userService.login(name, password);
+    return new JsonResult&lt;User&gt;(user);
+}
+</code></pre>
+
+<p>测试: 利用浏览器进行测试</p>
+<pre><code>http://localhost:8080/note/user/regist.do?name=andy&amp;nick=an&amp;password=123&amp;confirm=123
+</code></pre>
+
+<h3>4. 整合HTML界面</h3>
+<p>绑定界面事件 login.js：</p>
+<pre><code>$('#regist_button').click(registAction);
+$('#regist_username').blur(checkRegistUsername);
+$('#regist_password').blur(checkRegistPassword);
+$('#final_password').blur(checkFinalPassword);
+</code></pre>
+
+<p>添加表单失去焦点事件处理方法：</p>
+<pre><code>function checkRegistUsername(){
+    console.log(&quot;checkRegistUsername&quot;);
+    var name=$('#regist_username').val();
+    var reg = /^\w{3,10}$/;
+    if(! reg.test(name)){
+        $('#warning_1 span')
+            .html(&quot;不合规则&quot;)
+            .parent().show();
+        return false;
+    }
+    $('#warning_1').hide();
+    return true;
+}
+function checkRegistPassword(){
+    console.log('checkRegistPassword');
+    var pwd = $('#regist_password').val();
+    var reg = /^\w{3,10}$/;
+    if(! reg.test(pwd)){
+        $('#warning_2 span').html('不合规则')
+            .parent().show();
+        return false;   
+    }
+    $('#warning_2').hide();
+    return true;
+}
+function checkFinalPassword(){
+    console.log(&quot;checkFinalPassword&quot;);
+    var confirm = $('#final_password').val();
+    var pwd = $('#regist_password').val();
+    if(confirm != pwd){
+        $('#warning_3 span').html('不一致')
+            .parent().show();
+        return false;   
+    }
+    $('#warning_3').hide();
+    return true;
+}
+</code></pre>
+
+<p>添加 <strong>注册</strong> 点击事件处理方法</p>
+<pre><code>function registAction(){
+    console.log(&quot;registAction&quot;);
+    var pass=checkRegistUsername()+
+        checkRegistPassword()+
+        checkFinalPassword();
+    console.log('pass'+pass);
+    if(pass!=3){
+        //测试///
+        return;
+    }
+    var url=&quot;user/regist.do&quot;;
+    var name=$('#regist_username').val();
+    var nick=$('#nickname').val();
+    var pwd=$('#regist_password').val();
+    var confirm=$('#final_password').val();
+    //向服务器发送
+    var data={name:name, nick:nick, 
+            password:pwd, confirm:confirm};
+    console.log(&quot;url:&quot;+url);
+    console.log(&quot;data:&quot;+data);
+    $.post(url, data, function(result){
+        if(result.state==0){
+            var user=result.data;
+            console.log(user);
+            $('#back').click();
+            $('#count').val(user.name);
+            $('#password').focus();
+        }else if(result.state==2){
+            $('#warning_1 span')
+            .html(result.message)
+            .parent().show();
+        }else if(result.state==3){
+            $('#warning_2 span')
+            .html(result.message)
+            .parent().show();
+        }else{
+            alert(result.message);
+        }
+    });
+} 
+</code></pre>
+
+<p>测试...</p>
+<hr />
+<h2>作业</h2>
+<p>完成注册功能</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

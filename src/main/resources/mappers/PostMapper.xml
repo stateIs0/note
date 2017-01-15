@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.note.dao.PostDao">
+	<resultMap type="cn.tedu.note.entity.Post" 
+		id="postMap">
+		<id column="id" property="id"/>
+		<result column="content" 
+			property="content"/>
+		<association property="person"
+			javaType="cn.tedu.note.entity.Person">
+			<id column="pid" property="id"/>
+			<result column="name" property="name"/>
+		</association>
+		<collection property="comments"
+			javaType="list" 
+			ofType="cn.tedu.note.entity.Comment"
+			select="findComments"
+			column="id">
+		</collection>
+	</resultMap>
+	<select id="findComments" 
+		parameterType="int"
+		resultType="cn.tedu.note.entity.Comment">
+		select
+			id,
+			content,
+			post_id 
+		from
+			p_comment  
+		where 
+			post_id = #{id}
+	</select>
+	
+	<select id="findPostById"
+		parameterType="int"
+		resultMap="postMap">
+		select 
+			p.id,
+			p.content,
+			p.person_id,
+			u.id as pid,
+			u.name 
+		from
+			p_post p
+		join p_person u on (p.person_id=u.id) 
+		where 
+			p.id=#{id}
+	</select>
+</mapper>
+
+
+
+
+
+
+
