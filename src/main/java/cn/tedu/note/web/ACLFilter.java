@@ -21,20 +21,22 @@ import cn.tedu.note.service.UserService;
 public class ACLFilter implements Filter{
 	
 	private ServletContext sc;
+	
+	
 	private ApplicationContext ctx;
 	private UserService userService;
 	
 	/**
-	 * 过滤器初始化代码
+	 * 杩囨护鍣ㄥ垵濮嬪寲浠ｇ爜
 	 */
 	public void init(FilterConfig cfg)
 		throws ServletException {
  
 		sc=	cfg.getServletContext();
-		//获取Spring容器
+		//鑾峰彇Spring瀹瑰櫒
 		ctx=WebApplicationContextUtils
 			.getWebApplicationContext(sc);
-		//从容器中获取 UserService 对象
+		//浠庡鍣ㄤ腑鑾峰彇 UserService 瀵硅薄
 		userService=ctx.getBean(
 				"userService",
 				UserService.class);
@@ -82,8 +84,8 @@ public class ACLFilter implements Filter{
 			return;
 		}
 		
-		//没有登录时候，返回JSON错误消息
-		String json="{\"state\":1,\"message\":\"必须登录！\"}";
+		//娌℃湁鐧诲綍鏃跺�欙紝杩斿洖JSON閿欒娑堟伅
+		String json="{\"state\":1,\"message\":\"蹇呴』鐧诲綍锛乗"}";
 		response.setCharacterEncoding("utf-8");
 		response.setContentType(
 			"application/json;charset=UTF-8");
@@ -92,7 +94,7 @@ public class ACLFilter implements Filter{
 	private String getCookie(HttpServletRequest request, 
 			String cookieName) {
 		Cookie[] cookies=request.getCookies();
-		//如果客户端没有cookie，就会返回null
+		//濡傛灉瀹㈡埛绔病鏈塩ookie锛屽氨浼氳繑鍥瀗ull
 		if(cookies!=null){
 			for (Cookie cookie : cookies) {
 				if(cookieName.equals(
@@ -106,8 +108,8 @@ public class ACLFilter implements Filter{
 	private void checkLogin(HttpServletRequest request, HttpServletResponse response, FilterChain chain) 
 			throws IOException, ServletException {
 		//System.out.println("checkLogin");
-		//检查是否有 token cookie 
-		//如果没有， 就重定向到log_in.html
+		//妫�鏌ユ槸鍚︽湁 token cookie 
+		//濡傛灉娌℃湁锛� 灏遍噸瀹氬悜鍒發og_in.html
 		String token = getCookie(request, "token");
 		String userId= getCookie(request,"userId");
 		//System.out.println("userId:"+userId); 
@@ -115,7 +117,7 @@ public class ACLFilter implements Filter{
 			chain.doFilter(request, response);
 			return;
 		}
-		//重定向到 log_in.html
+		//閲嶅畾鍚戝埌 log_in.html
 		String path=request.getContextPath()+
 			"/log_in.html";
 		response.sendRedirect(path);
