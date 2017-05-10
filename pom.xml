@@ -1,122 +1,123 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>cn.tedu</groupId>
-  <artifactId>cloud_ntoe</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-   <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.tedu</groupId>
+	<artifactId>cloud_ntoe</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<dependencies>
 
 
-<dependency>
+		<dependency>
 
-<groupId>org.springframework</groupId>
+			<groupId>org.springframework</groupId>
 
-<artifactId>spring-webmvc</artifactId>
+			<artifactId>spring-webmvc</artifactId>
 
-<version>3.2.8.RELEASE</version>
+			<version>3.2.8.RELEASE</version>
 
-</dependency>
-
-
-<dependency>
-
-<groupId>org.springframework</groupId>
-
-<artifactId>spring-jdbc</artifactId>
-
-<version>3.2.8.RELEASE</version>
-
-</dependency>
+		</dependency>
 
 
-<dependency>
+		<dependency>
 
-<groupId>commons-dbcp</groupId>
+			<groupId>org.springframework</groupId>
 
-<artifactId>commons-dbcp</artifactId>
+			<artifactId>spring-jdbc</artifactId>
 
-<version>1.4</version>
+			<version>3.2.8.RELEASE</version>
 
-</dependency>
-
-
-<dependency>
-
-<groupId>mysql</groupId>
-
-<artifactId>mysql-connector-java</artifactId>
-
-<version>5.1.8</version>
-
-</dependency>
+		</dependency>
 
 
-<dependency>
+		<dependency>
 
-<groupId>org.mybatis</groupId>
+			<groupId>commons-dbcp</groupId>
 
-<artifactId>mybatis</artifactId>
+			<artifactId>commons-dbcp</artifactId>
 
-<version>3.3.0</version>
+			<version>1.4</version>
 
-</dependency>
-
-
-<dependency>
-
-<groupId>org.mybatis</groupId>
-
-<artifactId>mybatis-spring</artifactId>
-
-<version>1.2.3</version>
-
-</dependency>
+		</dependency>
 
 
-<dependency>
+		<dependency>
 
-<groupId>com.fasterxml.jackson.core</groupId>
+			<groupId>mysql</groupId>
 
-<artifactId>jackson-databind</artifactId>
+			<artifactId>mysql-connector-java</artifactId>
 
-<version>2.2.3</version>
+			<version>5.1.8</version>
 
-</dependency>
-
-
-<dependency>
-
-<groupId>junit</groupId>
-
-<artifactId>junit</artifactId>
-
-<version>4.12</version>
-
-<scope>test</scope>
-
-</dependency>
+		</dependency>
 
 
-<dependency>
+		<dependency>
 
-<groupId>commons-codec</groupId>
+			<groupId>org.mybatis</groupId>
 
-<artifactId>commons-codec</artifactId>
+			<artifactId>mybatis</artifactId>
 
-<version>1.10</version>
+			<version>3.3.0</version>
 
-</dependency>
+		</dependency>
 
 
-<dependency>
+		<dependency>
 
-<groupId>aspectj</groupId>
+			<groupId>org.mybatis</groupId>
 
-<artifactId>aspectjweaver</artifactId>
+			<artifactId>mybatis-spring</artifactId>
 
-<version>1.5.4</version>
+			<version>1.2.3</version>
 
-</dependency>
+		</dependency>
 
-</dependencies>
+
+		<dependency>
+
+			<groupId>com.fasterxml.jackson.core</groupId>
+
+			<artifactId>jackson-databind</artifactId>
+
+			<version>2.2.3</version>
+
+		</dependency>
+
+
+		<dependency>
+
+			<groupId>junit</groupId>
+
+			<artifactId>junit</artifactId>
+
+			<version>4.12</version>
+
+			<scope>test</scope>
+
+		</dependency>
+
+
+		<dependency>
+
+			<groupId>commons-codec</groupId>
+
+			<artifactId>commons-codec</artifactId>
+
+			<version>1.10</version>
+
+		</dependency>
+
+
+		<dependency>
+
+			<groupId>aspectj</groupId>
+
+			<artifactId>aspectjweaver</artifactId>
+
+			<version>1.5.4</version>
+
+		</dependency>
+
+	</dependencies>
 </project>
