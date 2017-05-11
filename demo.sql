@@ -10,7 +10,7 @@ select * from cn_note;
 			cn_note_title as title,
 			cn_note_body as body,
 			cn_note_create_time as createTime,
-			cn_note_last_modify_time as lastModifyTime
+		  	cn_note_last_modify_time as lastModifyTime
 		from
 			cn_note 
 		where
