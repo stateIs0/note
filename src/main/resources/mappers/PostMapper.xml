@@ -19,9 +19,7 @@
 			column="id">
 		</collection>
 	</resultMap>
-	<select id="findComments" 
-		parameterType="int"
-		resultType="cn.tedu.note.entity.Comment">
+	<select id="findComments" parameterType="int" resultType="cn.tedu.note.entity.Comment">
 		select
 			id,
 			content,
@@ -32,9 +30,7 @@
 			post_id = #{id}
 	</select>
 	
-	<select id="findPostById"
-		parameterType="int"
-		resultMap="postMap">
+	<select id="findPostById" parameterType="int" resultMap="postMap">
 		select 
 			p.id,
 			p.content,
